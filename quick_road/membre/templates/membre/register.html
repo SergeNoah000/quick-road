@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ENREGISTREMENT
+{% endblock title %}
+{% load crispy_forms_tags %}
+
+{% block body %}
+    <div class ="text-center">
+        <fieldset>
+            <legend style= "background-color:orange; margin-left:45%;"> FORMULAIRE D'ENREGISTREMENT</legend>
+            <section>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{form|crispy}}
+                    <input type="submit" value="S'ENREGISTRER" class='btn btn-primary'>
+                </form>
+            </section>
+        </fieldset>
+    </div>
+{% endblock body %}

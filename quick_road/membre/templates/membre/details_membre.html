@@ -1,0 +1,93 @@
+{% extends 'base.html' %} {% block title %} CONNEXION {% endblock title %} {% block body %}
+<div class="text-center">
+    <fieldset>
+        <legend style="background-color:orange; margin-left:45%;"> DETAILS </legend>
+        <section>
+        <style>
+            table tbody tr,table tbody tr td {
+                border-style:solid;
+            }
+        </style>
+            <table>
+                <tbody>
+                
+                    <tr class='text-center'>
+                        <td style=""> 
+                            <label for="text">
+                                Nom d'utilisateur:
+                            </label>
+                            <label for="text">
+                                {{ membre.username}}
+                            </label>
+                            <br>
+                            <label for="text">
+                                Nom:
+                            </label>
+                            <label for="text">
+                                {{ membre.last_name}}
+                            </label>
+                            <br>
+                            <label for="text">
+                                Prenom:
+                            </label>
+                            <label for="text">
+                                {{ membre.first_name}}
+                            </label>
+                            <br>
+                            <label for="text">
+                                Date de Naissance:
+                            </label>
+                            <label for="text">
+                                {{ membre.date_naissance}}
+                            </label>
+                            <br>
+                            <label for="text">
+                                Profession:
+                            </label>
+                            <label for="text">
+                                {{ membre.profession}}
+                            </label>
+                            <br>
+                            <label for="text">
+                                Adresse:
+                            </label>
+                            <label for="text">
+                                {{ membre.adresse}}
+                            </label>
+                            <br>
+                            <label for="text">
+                                telephone:
+                            </label>
+                            <label for="text">
+                                {{ membre.tel}}
+                            </label>
+                            <br>
+
+                            <label for="text">
+                                Email:
+                            </label>
+                            <label for="text">
+                                {{ membre.email}}
+                            </label>
+                            <br>
+                        </td>
+                        <td>                            
+                            <figcaption>
+                                 <img src="{{ request.user.membre.photo_profil.url }}" width=300  alt="une image">
+                                    <br>
+                                <h4 >votre photo de profil</h4>
+                            </figcaption>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+           
+        </section>
+        {% if request.user.membre.id == membre.id %}
+        <div class="btn-warning">
+            <a href="{% url 'membre:update' id=membre.id %}"> modifer</a>
+        </div>
+        {% endif %}
+    </fieldset>
+</div>
+{% endblock body %}

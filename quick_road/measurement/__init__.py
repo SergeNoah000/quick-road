@@ -1,0 +1,1 @@
+default_app = 'measurement.apps.MeasurementConfig'
